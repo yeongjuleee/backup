@@ -1,0 +1,215 @@
+@charset "utf-8";
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+
+body, header, h1, h2, div, ul, li, nav, dl, dt, dd, p, form, select, label, option, section, button, input { margin: 0; padding : 0 }
+* { box-sizing: border-box;}
+ul li { list-style: none; }
+a { text-decoration : none; color: black; }
+hr { display: none; }
+.hidden { position: absolute; text-indent : -99999px; }
+body {  
+        /* padding-top: 64px; */
+        font-family: "TTHoves", "NanumSquare", "나눔스퀘어", "돋움", dotum, arial, sans-serif;}
+
+
+#headerWrap{width: 100%; top: 0; 
+            height: 64px;
+            position: fixed;
+            background: #fff;
+            z-index: 9999;}
+
+#header{
+        /* max-width: 1920px;  */
+        margin: 0 auto; padding: 0;
+        width: 100%;
+        position: relative;
+        display: flex;
+        /* justify-content: center; */
+        }
+.logo{width: 228px; height: 35px;
+      top: 15px; left: 50px;
+      position: absolute;}
+
+.logo a{display: block;
+        width: 235px; height: 32px; position: absolute; text-indent: -9999px;
+        background: url(../images/slide_people/sp_pc.png) no-repeat -100px 0;
+        background-size: 328px 205px;}
+
+/* sideMenu */
+#sideMenu{position: absolute;
+          right: 50px; top: 20px; }
+
+#sideMenu ul { display:  flex; }
+#sideMenu ul li { padding: 0 10px; }
+
+/* gnb */
+#gnb{}
+#gnbList{display: flex; align-content:flex-start; line-height: 64px; margin-left: 300px;}
+#gnbList > li{padding-left: 20px; }
+#gnbList >li:nth-child(1){position: relative;} 
+/* 내 생각: gnb Teams 에 hover가 되면 snb가 나타나야함. 그래서 snb의 주축을 1번째인 Teams 에 줌..  */
+#gnbList > li > a{display: block;}
+
+/* snb */
+#gnbList .snb{ background: #fff;
+              display: none; 
+              position: absolute;
+              width: 100%; 
+              overflow: hidden;
+            }
+#gnbList .snb::before{ content: ""; position: absolute; top: 64px; left: 0; width: 100%; height: 182px; z-index: 99;  background: rgba(255, 255, 255, 0.98); }
+#gnbList .snb::after{ content: ""; position: absolute; top: 64px; left: 0; transform: translateY(182px); }
+/* 왜 갑자기 li 의 idx 3,4,5 가 증발했지..? */
+#gnbList .snb li{line-height: 32px; padding:5px 10px 0;}
+#gnbList .snb li a{color: #000;}
+
+#sideMenu .snb { 
+                           position: absolute;}
+#sideMenu .snb li{line-height: 32px;}
+#sideMenu .snb li a{ }
+/* { line-height: 32px; margin: 5px 0; } */
+
+/* mainSlider */
+/* #mainSlider { position: relative; } */
+#sliderWrap { background: skyblue; 
+                        width: 100%; height: 564px;
+                        overflow: hidden;
+                        position: relative; 
+                }
+#sliderWrap .slider{ width: 100%; height: 564px;
+                                top: -64px; left: 0;
+                                position: absolute;}
+
+/* 해준님이 준거 복붙한거 */
+#sliderWrap > .slider1 { background: url(../images/video/Bram.mp4) no-repeat left / 1700px 100vh; }
+#sliderWrap > .slider2 { background: url(./images/video/Yann_Bastard.mp4) no-repeat left / 1700px 100vh; }
+#sliderWrap > .slider3 { background: url(./images/video/Joker.mp4) no-repeat left / 1700px 100vh; }
+#sliderWrap > .slider4 { background: url(./images/video/Paukova.mp4) no-repeat left / 1700px 100vh; }
+
+
+/* #sliderWrap .slider1{ background: url(./images/video/Joker.mp4) no-repeat / 1373px 544px; } */
+
+
+
+#sliderWrap .slider .videoText {position: absolute;
+        /* left:50%; top: 55%;
+       width:50%; */
+ }
+#sliderWrap .slider .videoText  p{text-align: center; font-size: 80px; font-weight: bold; color: #fff;}
+
+/* searchMenu : 검색창 시작 */
+#searchMenu { width: 1197px; 
+        height: 54px; 
+        position: absolute;
+        /* justify-content: center;  */
+        left: 20%; bottom: 37.5%;
+        z-index: 100;
+       border: 1px solid #000;
+       display: flex;
+      }
+
+#searchMenu .searchBox{ width: 354px; padding: 20px 0 20px 50px; }
+#searchMenu .searchBox span{ width: 46px; height: 50px;
+                               overflow: hidden;
+                               left: 0; top: -5px;
+                               display: block;
+                                /* padding: 0 28px 0 21px; */
+                                text-indent: -9999px; 
+                                background: url(./images/slide_people/sp_pc.png) no-repeat -522px -60px;
+                               }
+                               /* 왜인지 자꾸 background-size 의 값을 입력하면 그 값이 얼마인지간에 사라지는 현상이 있다. */
+
+#searchMenu .searchBox_Name input { margin-right: 40px;flex: 1; }
+
+
+.searchSelect {}
+
+.searchGo{ }
+                               
+
+ /*  Teams  */
+ /* 변경사항: 
+ dl-dt-dd-dd 에서 dt에 span을 넣어 게시물 갯수를 dt 안으로 넣음. 
+ id introduceTeam, introducePeople, introduceBenefits 를 class introduce로 변경함. 
+ introduce 가 class가 되어 바로 아래 p 태그도 같이 효과가 다 적용되는 상태임.
+ class teamHeader 를 peopleHeader, benefitHeader 로 적용함. 이름은 titleHeader 인데 변경해야할지도...
+  */
+#teamWrap{  width: 100%; height: 500px; background: #fafafa; margin: 0 auto; padding: 40px 0 0;}
+.introduce{ width: 100%;  height: 100px;padding-top: 20px; margin-left: 350px; }
+.titleHeader { width:300px; font-size: 64px; line-height: 64px; }
+#teamWrap .introduce > p { font-size: 22px; font-weight: bold;  margin-bottom: 10px; padding: 5px 0 0; }
+#teamSubWrap {width: 100%;  width: 100%; }
+#teamSubWrap ul {width: 100%; 
+        /* margin-left: 350px;  */
+        margin-top: 20px; }
+#teamSubWrap ul li { line-height: 70px;  }
+#teamSubWrap ul li:hover {  background: #ebebeb;}
+/* hover될 때 색깔 바뀌게 */
+#teamSubWrap dl { width: 100%; display: flex; margin-top: 20px; padding-left: 350px; }
+#teamSubWrap dl dt {  font-size: 38px; font-weight: bold; line-height: 64px; flex: 2; }
+#teamSubWrap dl dt span{font-size: 15px; }
+#teamSubWrap dl dd { font-size: 22px; line-height: 64px; flex: 3; }
+
+                                
+/* people */
+#peopleWrap { border-top: 1px solid #000;}
+#peopleWrap .introduce > p { font-size: 22px; font-weight: bold;  margin-bottom: 10px; padding: 5px 0 0; }
+.peopleList { height: 800px;}
+.peopleListWrap { display: flex; margin-left: 350px;}
+.peopleListWrap .list{ margin: 20px 20px 20px 0;}
+.peopleList li {}
+.peopleList li a {}
+
+/*  li를 감싸고 있는 div에 class list를 주고 position relative를 한 후에, 이미지가 들어가야하는 dd를 position absolute 를 주면 되지 않을까..? 그러고 top이랑 줘서 자리 잡고.. */
+#peopleWrap > .list {  position: relative; }
+.peopleList dl { line-height: 20px;}
+.peopleList dl dt { text-transform: uppercase;}
+.peopleList dl dt dd { position: absolute;}
+.peopleList dl dt .peoplePic {}                                
+.nameLine {}
+                                
+/* benefit */
+#benefitWrap {border-top: 1px solid #000;}
+#benefitSubWrap{}
+                                
+                                
+/* Learn more 공통 */
+.more{}
+                                
+/* 버튼 공통 */
+.btnSlider{}
+.btnSlider .prev{}
+.btnSlider .next{}
+                                                                
+/* aside */
+#asideWrap{}
+#asideHeading{}
+.asideLink{}
+.asideLink a{}
+
+/* footer  */
+#footerWrap { position: relative;  width: 100%;  padding: 50px 0; background: #f2f2f2;}
+#footerWrap #footer { width: 100%;  }
+#footerWrap #footer small { position: absolute; top: 40px; left: 20px; padding: 0 20px 0; font-size: 18px;}
+#footer>strong>a{ position: absolute; top: 40px; left: 160px; padding: 0 20px 0; color: #909090; font-size: 14px; font-weight: bold; }
+#familySite{position: absolute; right: 80px; padding: 0 20px 0; }
+/* familySite 의 top: 40px; width: 280px; */
+.familySite { position: relative; width: 280px; height: 18px; }
+/* 밑에 선 주기위해 #familySite .familySite 의 가상영역을 만들어boja */
+ #familySite .familySite::before{content: "관련사이트 "; 
+        position: absolute; bottom: 40px; bottom: 10px;} 
+/* before 랑 after에 아이콘 넣어야하는데 이미지가 안 보이는건,,, */
+#familySite .familySite::after{ content: ""; white-space: inherit; width: 280px; height: 18px; top: -7px; border-bottom: 1px solid #000; position: absolute;}
+
+/* #familySite dt { position: absolute; top: -10px; background: greenyellow; width: 90px; height: 18px; text-align: center; }*/
+ /* background: url(./images/slide_people/sp_pc.png) no-repeat -12px -179px; */
+
+
+#familySite dt { right: 10px; height: 18px;}
+#familySite dd{ display: none; }
+#familySite ul { width: 280px; height: 336px; position: absolute; }
+#familySite ul li{  background: #fff;  padding: 0 12px; font-size: 18px;}
+#familySite ul .upcase{ text-transform: uppercase; }
+/* #familySite  { width: 280px; height: 336px; background: #fff; font-size: 14px; font-weight: bold;}
+#familySite > ul > .upcase { text-transform: uppercase; } */
